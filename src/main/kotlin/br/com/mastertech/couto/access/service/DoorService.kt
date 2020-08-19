@@ -39,7 +39,7 @@ class DoorService {
     fun getByDoorAndCustomerId(customerId: Integer, doorId: Integer): Access {
         val access = accessRepository.findByCustomerIdAndDoorId(customerId, doorId)
         if (access.isPresent.not()) {
-            accessProducer.sendAccessAoKafka(Access(customerId, customerId, customerId))
+            accessProducer.sendAccessAoKafka(Access(Integer(0), doorId, customerId))
             throw AccessNotFoundException()
         } else {
             accessProducer.sendAccessAoKafka(access.get())
