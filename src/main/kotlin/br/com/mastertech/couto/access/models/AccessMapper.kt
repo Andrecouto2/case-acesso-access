@@ -21,9 +21,7 @@ class AccessMapper {
     }
 
     fun toAccess(createAccessResponse: CreateAccessRequest): Access {
-        val access = Access()
-        access.customerId = createAccessResponse.customerId
-        access.doorId = createAccessResponse.doorId
+        val access = Access(null, createAccessResponse.doorId, createAccessResponse.customerId)
         return access
     }
 

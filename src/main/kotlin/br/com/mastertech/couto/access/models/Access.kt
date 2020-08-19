@@ -14,14 +14,20 @@ class Access {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    lateinit var id: Integer
+    val id: Integer?
 
     @Getter
     @Setter
-    lateinit var doorId: Integer
+    val doorId: Integer
 
     @Getter
     @Setter
-    lateinit var customerId: Integer
+    val customerId: Integer
+
+    constructor(id: Integer?, doorId: Integer, customerId: Integer) {
+        this.id = id
+        this.doorId = doorId
+        this.customerId = customerId
+    }
 
 }
